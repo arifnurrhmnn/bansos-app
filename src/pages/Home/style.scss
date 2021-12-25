@@ -1,0 +1,255 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+.box-result {
+  background: burlywood;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+}
+
+.form-Wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.col-2 {
+  flex-direction: row;
+  .col {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    width: 50%;
+  }
+}
+
+label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input,
+select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #bbbbbb;
+  outline: none;
+  background: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555555;
+  box-sizing: border-box;
+  @include placeholder {
+    color: #bbbbbb;
+  }
+  &:hover {
+    border: 1px solid #51af57;
+  }
+  &:focus {
+    outline: 2px solid #51af57;
+  }
+}
+
+select {
+  option {
+    padding: 8px;
+  }
+}
+
+input[type="file"] {
+  padding: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  cursor: pointer;
+  &::-webkit-file-upload-button {
+    display: none;
+  }
+  &:focus {
+    &:before {
+      background: #51af57 !important;
+    }
+  }
+  &:before {
+    content: "Masukkan File";
+    display: inline-block;
+    background: #bbbbbb;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px 18px;
+    margin-right: 8px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+.radio-option {
+  display: flex;
+  gap: 2rem;
+  font-size: 14px;
+  .radio-button {
+    padding: 8px 0px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.radio-col {
+  display: flex;
+  flex-direction: column;
+  .radio-item {
+    height: 39px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    #lainnya {
+      width: 100%;
+    }
+  }
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 2px solid #bbbbbb;
+  border-radius: 50%;
+  padding: 5px;
+  &:hover {
+    border: 2px solid #51af57;
+  }
+  &:checked {
+    border: 2px solid #fff;
+    background: #51af57;
+    outline: 2px solid #51af57;
+  }
+}
+
+.pernyataan {
+  /* custom checkbox */
+  .checkbox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    gap: 8px;
+  }
+  input {
+    visibility: hidden;
+    position: absolute;
+  }
+  .check {
+    max-height: 14px;
+    min-width: 14px;
+    background-color: #fff;
+    border: 2px solid #bbbbbb;
+    box-sizing: border-box;
+    margin-top: 3px;
+  }
+  .check:hover {
+    border: 2px solid #51af57;
+  }
+  input:checked ~ .check {
+    background-color: #51af57;
+    border: none;
+  }
+
+  input:checked ~ .check:after {
+    display: block;
+  }
+  .check:after {
+    content: "";
+    display: none;
+    margin: auto;
+    margin-top: 1.5px;
+    width: 3px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+}
+
+button {
+  margin-top: 2rem;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #bbbbbb;
+  outline: none;
+  background: #51af57;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  box-sizing: border-box;
+  &:hover {
+    border: 1px solid #51af57;
+  }
+}
+// input[type="checkbox"] {
+// }
+
+// .pernyataan {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: flex-start;
+//   gap: 8px;
+//   .checkbox {
+//     margin-top: 4px;
+//   }
+//   label {
+//     font-weight: normal;
+//   }
+// }
+
+// .custom-file-input::-webkit-file-upload-button {
+//   visibility: hidden;
+// }
+// .custom-file-input::before {
+//   content: "Select some files";
+//   display: inline-block;
+//   background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+//   border: 1px solid #999;
+//   border-radius: 3px;
+//   padding: 5px 8px;
+//   outline: none;
+//   white-space: nowrap;
+//   -webkit-user-select: none;
+//   cursor: pointer;
+//   text-shadow: 1px 1px #fff;
+//   font-weight: 700;
+//   font-size: 10pt;
+// }
+// .custom-file-input:hover::before {
+//   border-color: black;
+// }
+// .custom-file-input:active::before {
+//   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+// }
